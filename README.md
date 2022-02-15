@@ -38,7 +38,7 @@ To perform all the scan calculations the following settings are mandatory:
 
 a) SIMONA dihedral scan:
 
-SIMONA dihedral scan can be performed with two kind of input: (1) SMILE code or (2)  PDB coordinates. In case, you prefer to use PDB coordinates, check and clean your structure and provide sensible atom names.
+SIMONA dihedral scan can be performed with two kind of input: (1) SMILE code or (2)  PDB coordinates. In case you prefer to use PDB coordinates, check and clean your structure and provide sensible atom names.
 
 First choose "Dihedral Score to identify dihedrals (SIMONA)", and then Smile code or Coordinates, respectively.
 

@@ -1,0 +1,63 @@
+<WaNoTemplate>
+    
+	<WaNoMeta>
+ 		<Author>
+		<Name> Montserrat Penaloza-Amion</Name>
+  		<Email> montserrat.amion@kit.edu</Email>
+ 		</Author>
+		<Description>
+			This WaNo performs scan calculations using SIMONA to score all the possible torsions.
+            Structures and atom id list are generated to be used with DFT-Turbomole WaNo.
+ 		</Description>
+ 		<Keyword>SIMONA</Keyword>
+	</WaNoMeta>
+
+<WaNoRoot name="SIMONA-DHscan Calculation"> 
+    <WaNoString name="Molecule Name">NONE</WaNoString>
+    <WaNoInt name="Molecule net charge">0</WaNoInt>
+    <WaNoInt name="Rotation steps">36</WaNoInt>
+    <WaNoBool name="Dihedral Score to indetify dihedrals (SIMONA)">False</WaNoBool>
+        <WaNoDictBox visibility_condition="%s == True" visibility_var_path="Dihedral Score to indetify dihedrals (SIMONA)" name="Input Dihedral-Score">
+            <WaNoBool name="SMILE code">False</WaNoBool>  
+                <WaNoString visibility_condition="%s == True" visibility_var_path="Input Dihedral-Score.SMILE code" name="Input SMILE Code">NONE</WaNoString>
+            <WaNoBool name="Coordinates">False</WaNoBool> 
+            
+    <WaNoFile visibility_condition="%s == True" visibility_var_path="Input Dihedral-Score.Coordinates" logical_filename="structure.pdb" name="Structure">coord.pdb</WaNoFile> 
+    </WaNoDictBox>
+
+    <WaNoBool name="Generate structure inputs for DFT-Turbomole">False</WaNoBool>
+
+<WaNoDictBox visibility_condition="%s == True" visibility_var_path="Generate structure inputs for DFT-Turbomole" name="Coordinates and dihedral IDs inputs">
+   <WaNoFile visibility_condition="%s == True" visibility_var_path="Generate structure inputs for DFT-Turbomole" logical_filename="structure.pdb" name="Structure">coord.pdb</WaNoFile>
+ 
+        <WaNoMultipleOf visibility_condition="%s == True" visibility_var_path="Generate structure inputs for DFT-Turbomole" name="Torsion atom ids">
+            <Element id="0">
+            <WaNoString name="Atom id">0</WaNoString>
+            </Element>
+        </WaNoMultipleOf>
+
+</WaNoDictBox>
+ 
+    </WaNoRoot>
+    
+    <WaNoExecCommand>
+        module load gromacs
+        source  /home/ws/gp7051/anaconda3/etc/profile.d/conda.sh
+        conda activate
+        bash ./settings.sh
+        python SIMONA-DHscan.py
+    </WaNoExecCommand>
+        
+    <WaNoInputFiles>
+    <WaNoInputFile logical_filename="settings.sh">settings.sh</WaNoInputFile>
+    <WaNoInputFile logical_filename="SIMONA-DHscan.py">SIMONA-DHscan.py</WaNoInputFile>
+    </WaNoInputFiles>
+    
+
+<WaNoOutputFiles>
+        <WaNoOutputFile>structures.tar.gz</WaNoOutputFile>
+        <WaNoOutputFile>Result_DHInfo.yml</WaNoOutputFile>
+</WaNoOutputFiles>
+
+
+ </WaNoTemplate>
