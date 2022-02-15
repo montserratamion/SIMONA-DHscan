@@ -2,7 +2,7 @@ When publishing results obtained with DFT-VASP WaNo, please consider to cite:
 
 # SIMONA-DHscan
 
-<img src="SIMONA-DHscan.png"  width="20%">
+<img src="SIMONA-DHscan.png"  width="10%">
 This WaNo:
 
 1. Generates a molecule with SMILE code or uses coordinates with PDB format.
