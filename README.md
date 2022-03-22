@@ -1,4 +1,4 @@
-When publishing results obtained with DFT-VASP WaNo, please consider to cite: 
+When publishing results obtained with SIMONA-DHscan WaNo, please consider to cite: [![DOI](https://zenodo.org/badge/459555048.svg)](https://zenodo.org/badge/latestdoi/459555048)
 
 # SIMONA-DHscan
 
